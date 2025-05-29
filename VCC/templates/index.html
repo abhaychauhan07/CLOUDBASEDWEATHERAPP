@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Weather Forecast</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="light-mode">
+    <div class="theme-toggle">
+        <button id="themeToggle">🌓</button>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Indian Weather Forecast</h1>
+            <div class="city-selector">
+                <select id="citySelect">
+                    <option value="Dehradun">Dehradun</option>
+                    <option value="Jaipur">Jaipur</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Chennai">Chennai</option>
+                    <option value="Delhi">Delhi</option>
+                </select>
+            </div>
+        </header>
+
+        <main>
+            <div class="weather-grid">
+                <div class="card current-weather">
+                    <h2>Current Weather</h2>
+                    <div id="currentWeather">
+                        <div class="weather-info">
+                            <p class="temperature">--°C</p>
+                            <p class="description">Loading...</p>
+                            <p class="humidity">Humidity: --%</p>
+                            <p class="wind">Wind: -- m/s</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card forecast">
+                    <h2>5-Day Forecast</h2>
+                    <div id="forecastChart"></div>
+                </div>
+
+                <div class="card predictions">
+                    <h2>ML Predictions</h2>
+                    <div id="predictionsChart"></div>
+                </div>
+
+                <div class="card recommendations">
+                    <h2>Travel Recommendations</h2>
+                    <div id="recommendations">
+                        <ul class="recommendations-list"></ul>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="alertBanner" class="alert-banner hidden">
+            <span class="alert-message"></span>
+            <button class="close-alert">×</button>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html> 
